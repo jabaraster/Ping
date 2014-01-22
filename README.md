@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 wicket-jpaプロジェクトの動作のさせ方
 
 # 事前準備
@@ -57,3 +58,7 @@ mvn -DskipTests=true compile exec:java
 -Dhibernate.hbm2ddl.auto=create-drop
 ```
 
+=======
+Ping
+====
+>>>>>>> FETCH_HEAD
