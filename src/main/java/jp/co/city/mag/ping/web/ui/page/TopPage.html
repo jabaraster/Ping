@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+
+<wicket:extend>
+
+  <h1>各サイトの有効性を設定して下さい</h1>
+
+  <a wicket:id="refresher" href="#" class="btn btn-primary">
+    <i class="glyphicon glyphicon-white glyphicon-refresh"></i>
+    最新の状態を表示
+  </a>
+  <a wicket:id="adder" href="#" class="btn btn-primary">
+    <i class="glyphicon-white glyphicon glyphicon-plus"></i>
+    カテゴリを追加
+  </a>
+  <hr/>
+  <div wicket:id="feedback"></div>
+  <div wicket:id="categoriesContainer" class="categoriesContainer">
+    <div wicket:id="categories" class="categories">
+      <div wicket:id="category"></div>
+    </div>
+  </div>
+</wicket:extend>
+
+</body>
+</html>

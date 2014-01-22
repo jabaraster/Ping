@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+
+<wicket:panel>
+
+  <form wicket:id="form">
+    <label wicket:id="categoryLabel"></label>
+    <div class="stateContainer">
+      <input wicket:id="state" type="checkbox" class="switch-large"/>
+    </div>
+    <hr/>
+    <button wicket:id="submitter" class="btn btn-mini btn-success">
+      <i class="glyphicon glyphicon-white glyphicon-ok"></i>
+      保存
+    </button>
+    <button wicket:id="deleter" class="deleter btn btn-mini btn-danger">
+      <i class="glyphicon glyphicon-white glyphicon-remove-circle"></i>
+      削除
+    </button>
+  </form>
+
+</wicket:panel>
+
+</body>
+</html>
