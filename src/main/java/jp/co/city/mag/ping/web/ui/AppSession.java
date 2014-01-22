@@ -20,7 +20,7 @@ import org.apache.wicket.request.cycle.RequestCycle;
  */
 public class AppSession extends WebSession {
 
-    private final AtomicReference<LoginUser> authenticated    = new AtomicReference<LoginUser>();
+    private final AtomicReference<LoginUser> authenticated = new AtomicReference<LoginUser>();
 
     /**
      * @param pRequest -

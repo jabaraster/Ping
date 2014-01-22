@@ -60,9 +60,8 @@ public class AuthenticationServiceImpl extends JpaDaoBase implements IAuthentica
             if (member.getUser().isAdministrator()) {
                 if (Environment.getAdminPassword().equals(pPassword)) {
                     return new LoginUser(member.getUser());
-                } else {
-                    throw FailAuthentication.INSTANCE;
                 }
+                throw FailAuthentication.INSTANCE;
             }
 
             if (!member.equal(pPassword)) {
