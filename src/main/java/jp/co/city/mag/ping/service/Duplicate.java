@@ -13,7 +13,7 @@ public class Duplicate extends Exception {
      * 
      */
     @SuppressWarnings("synthetic-access")
-    public static final Global GLOBAL           = new Global();
+    public static final Global INSTANCE           = new Global();
 
     /**
      * @author jabaraster

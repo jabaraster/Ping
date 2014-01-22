@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import jp.co.city.mag.ping.Environment;
 import jp.co.city.mag.ping.entity.ELoginPassword;
 import jp.co.city.mag.ping.entity.ELoginPassword_;
 import jp.co.city.mag.ping.entity.EUser_;
@@ -56,6 +57,14 @@ public class AuthenticationServiceImpl extends JpaDaoBase implements IAuthentica
 
         try {
             final ELoginPassword member = getSingleResult(em.createQuery(query));
+            if (member.getUser().isAdministrator()) {
+                if (Environment.getAdminPassword().equals(pPassword)) {
+                    return new LoginUser(member.getUser());
+                } else {
+                    throw FailAuthentication.INSTANCE;
+                }
+            }
+
             if (!member.equal(pPassword)) {
                 throw FailAuthentication.INSTANCE;
             }

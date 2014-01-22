@@ -126,7 +126,7 @@ public class PingCategoryServiceImpl extends JpaDaoBase implements IPingCategory
     private void insertCore(final EPingCategory pPingCategory) throws Duplicate {
         try {
             findStateByCategory(pPingCategory.getCategory());
-            throw Duplicate.GLOBAL;
+            throw Duplicate.INSTANCE;
         } catch (final NotFound e) {
             getEntityManager().persist(pPingCategory);
         }
@@ -134,7 +134,7 @@ public class PingCategoryServiceImpl extends JpaDaoBase implements IPingCategory
 
     private void updateCore(final EPingCategory pPingCategory) throws Duplicate {
         if (existsCategoryForUpdate(pPingCategory)) {
-            throw Duplicate.GLOBAL;
+            throw Duplicate.INSTANCE;
         }
 
         final EPingCategory merged = getEntityManager().merge(pPingCategory);
