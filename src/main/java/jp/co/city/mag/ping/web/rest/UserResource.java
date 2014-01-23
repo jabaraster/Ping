@@ -23,11 +23,11 @@ public class UserResource {
     private final IUserService employeeService;
 
     /**
-     * @param pEmployeeService
+     * @param pUserService -
      */
     @Inject
-    public UserResource(final IUserService pEmployeeService) {
-        this.employeeService = pEmployeeService;
+    public UserResource(final IUserService pUserService) {
+        this.employeeService = pUserService;
     }
 
     /**

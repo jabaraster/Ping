@@ -1,7 +1,6 @@
 package jp.co.city.mag.ping.web.ui.page;
 
 import jabara.wicket.ComponentCssHeaderItem;
-import jabara.wicket.ComponentJavaScriptHeaderItem;
 import jabara.wicket.IAjaxCallback;
 import jabara.wicket.JavaScriptUtil;
 
@@ -70,11 +69,21 @@ public class TopPage extends RestrictedPageBase {
         pResponse.render(ComponentCssHeaderItem.forType(TopPage.class));
 
         pResponse.render(JavaScriptUtil.forJQuery1_9_1ReferenceHeaderItem());
-        pResponse.render(ComponentJavaScriptHeaderItem.forType(TopPage.class));
+        pResponse.render(JavaScriptHeaderItem.forReference( //
+                new JavaScriptResourceReference( //
+                        TopPage.class //
+                        , "min/" + TopPage.class.getSimpleName() + ".min.js"))); //$NON-NLS-1$ //$NON-NLS-2$
 
-        pResponse.render(JavaScriptHeaderItem.forReference(new JavaScriptResourceReference(TopPage.class,
-                "bootstrapSwitch/js/bootstrap-switch.min.js"))); //$NON-NLS-1$
-        pResponse.render(CssHeaderItem.forReference(new CssResourceReference(TopPage.class, "bootstrapSwitch/css/bootstrap-switch.min.css"))); //$NON-NLS-1$
+        // チェックボックスをスイッチ形式で表示するために必要なファイル.
+        // http://www.bootstrap-switch.org
+        pResponse.render(JavaScriptHeaderItem.forReference( //
+                new JavaScriptResourceReference( //
+                        TopPage.class //
+                        , "bootstrapSwitch/js/bootstrap-switch.min.js"))); //$NON-NLS-1$
+        pResponse.render(CssHeaderItem.forReference( //
+                new CssResourceReference( //
+                        TopPage.class //
+                        , "bootstrapSwitch/css/bootstrap-switch.min.css"))); //$NON-NLS-1$
     }
 
     /**
@@ -161,20 +170,20 @@ public class TopPage extends RestrictedPageBase {
             }
             pTarget.add(getFeedback());
             pTarget.add(getCategoriesContainer());
-            appendSetupBootstrapSwitchScript(pTarget);
+            appendSetBootstrapSwitchScript(pTarget);
         }
 
         void onCategoryDelete(final AjaxRequestTarget pTarget, final EPingCategory pPingCategory) {
             getCategories().getModelObject().remove(pPingCategory);
             pTarget.add(getCategoriesContainer());
-            appendSetupBootstrapSwitchScript(pTarget);
+            appendSetBootstrapSwitchScript(pTarget);
         }
 
         void onCategoryUpdate(final AjaxRequestTarget pTarget) {
             pTarget.add(getFeedback());
         }
 
-        private void appendSetupBootstrapSwitchScript(final AjaxRequestTarget pTarget) {
+        private void appendSetBootstrapSwitchScript(final AjaxRequestTarget pTarget) {
             pTarget.appendJavaScript("setBootstrapSwitch();"); //$NON-NLS-1$
         }
 

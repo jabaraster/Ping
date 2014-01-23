@@ -4,7 +4,7 @@
     <groupId>jp.co.city</groupId>
     <artifactId>Ping</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Ping Webapp</name>
     <url>http://maven.apache.org</url>
 

@@ -19,8 +19,9 @@ import org.apache.wicket.request.cycle.RequestCycle;
  * 
  */
 public class AppSession extends WebSession {
+    private static final long                serialVersionUID = -353214547006835148L;
 
-    private final AtomicReference<LoginUser> authenticated = new AtomicReference<LoginUser>();
+    private final AtomicReference<LoginUser> authenticated    = new AtomicReference<LoginUser>();
 
     /**
      * @param pRequest -

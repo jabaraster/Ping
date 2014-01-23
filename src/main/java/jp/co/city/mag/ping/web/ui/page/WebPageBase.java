@@ -1,13 +1,12 @@
 package jp.co.city.mag.ping.web.ui.page;
 
+import jabara.general.ArgUtil;
+import jabara.wicket.IconHeaderItem;
+import jabara.wicket.JavaScriptUtil;
 import jp.co.city.mag.ping.Environment;
 import jp.co.city.mag.ping.web.ui.AppSession;
 import jp.co.city.mag.ping.web.ui.WicketApplication;
 import jp.co.city.mag.ping.web.ui.WicketApplication.Resource;
-
-import jabara.general.ArgUtil;
-import jabara.wicket.IconHeaderItem;
-import jabara.wicket.JavaScriptUtil;
 
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -16,7 +15,6 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.request.resource.JavaScriptResourceReference;
@@ -25,6 +23,7 @@ import org.apache.wicket.request.resource.JavaScriptResourceReference;
  *
  */
 public abstract class WebPageBase extends WebPage {
+    private static final long                        serialVersionUID  = -4693762636898015547L;
 
     private static final CssResourceReference        REF_BOOTSTRAP_CSS = new CssResourceReference(WebPageBase.class,
                                                                                "bootstrap/css/bootstrap.min.css");              //$NON-NLS-1$
@@ -42,7 +41,7 @@ public abstract class WebPageBase extends WebPage {
     }
 
     /**
-     * @param pParameters
+     * @param pParameters -
      */
     protected WebPageBase(final PageParameters pParameters) {
         super(pParameters);

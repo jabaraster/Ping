@@ -1,17 +1,18 @@
 package jp.co.city.mag.ping.web.ui.page;
 
+import jp.co.city.mag.ping.Environment;
+
 import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
-import jp.co.city.mag.ping.Environment;
-
 /**
  *
  */
 public abstract class RestrictedPageBase extends WebPageBase {
+    private static final long serialVersionUID = -2767004632628893836L;
 
     private Label             applicationName;
     private Link<?>           goTop;
@@ -22,15 +23,15 @@ public abstract class RestrictedPageBase extends WebPageBase {
      */
     protected RestrictedPageBase() {
         this(new PageParameters());
-        this.add(getGoTop());
-        this.add(getGoLogout());
     }
 
     /**
-     * @param pParameters
+     * @param pParameters -
      */
     protected RestrictedPageBase(final PageParameters pParameters) {
         super(pParameters);
+        this.add(getGoTop());
+        this.add(getGoLogout());
     }
 
     private Label getApplicationName() {

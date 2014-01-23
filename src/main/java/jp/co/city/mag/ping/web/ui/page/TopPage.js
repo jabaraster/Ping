@@ -3,13 +3,9 @@
 
     function initialize() {
         setBootstrapSwitch();
-        $('div.categoriesContainer').on('click', '*', function() {
-        	alert(111);
-            return false;
-        });
     }
 })();
 
 function setBootstrapSwitch() {
-    $('div.categories input[type="checkbox"]').bootstrapSwitch();
+    $('div.categories input[type="checkbox"]').bootstrapSwitch(); // この１行が必要だということがどこにも書いていない・・・公式サイトにすらも・・・
 }

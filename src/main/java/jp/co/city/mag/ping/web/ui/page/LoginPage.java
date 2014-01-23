@@ -1,12 +1,16 @@
 package jp.co.city.mag.ping.web.ui.page;
 
 import jabara.general.Empty;
-import jabara.wicket.CssUtil;
+import jabara.wicket.ComponentCssHeaderItem;
 import jabara.wicket.ErrorClassAppender;
 import jabara.wicket.JavaScriptUtil;
 import jabara.wicket.Models;
 
 import java.io.Serializable;
+
+import jp.co.city.mag.ping.Environment;
+import jp.co.city.mag.ping.model.FailAuthentication;
+import jp.co.city.mag.ping.web.ui.AppSession;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxButton;
@@ -21,15 +25,12 @@ import org.apache.wicket.markup.html.pages.RedirectPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.util.string.StringValue;
 
-import jp.co.city.mag.ping.Environment;
-import jp.co.city.mag.ping.model.FailAuthentication;
-import jp.co.city.mag.ping.web.ui.AppSession;
-
 /**
  * 
  */
 @SuppressWarnings("synthetic-access")
 public class LoginPage extends WebPageBase {
+    private static final long serialVersionUID = -8688958744338565795L;
 
     private final Handler     handler          = new Handler();
 
@@ -48,17 +49,17 @@ public class LoginPage extends WebPageBase {
     }
 
     /**
-     * @see sandbox.quickstart.web.ui.page.WebPageBase#renderHead(org.apache.wicket.markup.head.IHeaderResponse)
+     * @see jp.co.city.mag.ping.web.ui.page.WebPageBase#renderHead(org.apache.wicket.markup.head.IHeaderResponse)
      */
     @Override
     public void renderHead(final IHeaderResponse pResponse) {
         super.renderHead(pResponse);
-        CssUtil.addComponentCssReference(pResponse, LoginPage.class);
+        pResponse.render(ComponentCssHeaderItem.forType(LoginPage.class));
         JavaScriptUtil.addFocusScript(pResponse, getUserId());
     }
 
     /**
-     * @see sandbox.quickstart.web.ui.page.WebPageBase#getTitleLabelModel()
+     * @see jp.co.city.mag.ping.web.ui.page.WebPageBase#getTitleLabelModel()
      */
     @Override
     protected IModel<String> getTitleLabelModel() {
